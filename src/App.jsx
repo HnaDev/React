@@ -1,38 +1,33 @@
+import './components/todos/Todo.css'
+import TodoNewComponent from './components/todos/TodoNewComponent'
+import TodoDataComponent from './components/todos/TodoDataComponent'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import MyComponent from './components/learn/MyComponent'
-import { ListComponent, ListComponent2 } from './components/learn/ListComponent'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const [todoList, setTodoList] = useState([
+    {id: 1, name: "anhld"},
+  ])
+ 
+  // truyền function từ cha sang con
+  const AddNewTodo = (name) =>{
+    const newTodo = {
+      id: randomIntFromInterval(1,100000),
+      name:name
+    }
+    setTodoList([...todoList, newTodo]);
+  }
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="todo">
+        <div className="todo_title">
+          <h2>TODO LIST</h2>
+        </div>
+        <TodoNewComponent AddNewTodo={AddNewTodo} />
+        <TodoDataComponent todoList={todoList} />
       </div>
-      <h1>Hello World</h1>
-      <MyComponent/>
-      <h1><ListComponent/></h1>
-      <ListComponent2/>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

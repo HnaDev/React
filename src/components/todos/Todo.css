@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: linear-gradient(to top, #323536 0%, #a7b0b4 100%);
+    height: 100vh;
+}
+
+.todo {
+    margin: 50px auto;
+    max-width: 600px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+input {
+    height: 40px;
+    font-size: 16px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    transition: border-color 0.3s ease;
+}
+
+button {
+    font-size: 24px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: rgba(0, 0, 0, 0.63);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(0, 0, 0);
+
+}
+
+.todo_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo_data .data {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.todo_data p {
+    font-style: italic;
+    font-size: 16px;
+}
