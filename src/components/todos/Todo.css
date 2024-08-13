@@ -1,16 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: "Poppins", sans-serif;
-    background-image: linear-gradient(to top, #323536 0%, #a7b0b4 100%);
-    height: 100vh;
-}
 
 .todo {
     margin: 50px auto;
@@ -39,7 +26,7 @@ input {
     transition: border-color 0.3s ease;
 }
 
-button {
+.btn {
     font-size: 24px;
     height: 40px;
     padding: 0 20px;
@@ -51,7 +38,7 @@ button {
     transition: background-color 0.3s ease;
     cursor: pointer;
 }
-button:hover{
+.btn:hover{
     background-color: rgb(0, 0, 0);
 
 }
@@ -62,6 +49,8 @@ button:hover{
 }
 
 .todo_data .data {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -72,3 +61,28 @@ button:hover{
     font-style: italic;
     font-size: 16px;
 }
+.btn2{
+    padding: 6px;
+}
+
+.logo_react{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+.logo_react img {
+    width: 120px;
+    animation: rotateScale 2s linear infinite; 
+}
+
+  @keyframes rotateScale { 
+    0% { 
+        transform: rotate(0deg) scale(1); 
+    } 
+    50% { 
+        transform: rotate(180deg) scale(1.2); 
+    } 
+    100% { 
+        transform: rotate(360deg) scale(1); 
+    } 
+} 
