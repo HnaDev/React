@@ -1,6 +1,5 @@
 import { Input, notification } from "antd";
 import { Button, Flex } from 'antd';
-import axios from "axios";
 import { useState } from "react";
 import { createUserAPI } from "../../services/api.services";
 
@@ -11,11 +10,18 @@ const UserForm = () => {
     const [password, setPassword] = useState('')
 
     const handleClick = async () => {
-        const response = await createUserAPI(fullname, email, phone, password)
-        if (response.data) {
-            notification.success({
-                message: 'Create success',
-                description: 'Tạo mới thành công !'
+        try {
+            const response = await createUserAPI(fullname, email, phone, password)
+            if (response.data) {
+                notification.success({
+                    message: 'Create success',
+                    description: 'Tạo mới thành công !'
+                })
+            }
+        } catch (error) {
+            notification.error({
+                message: 'delete success',
+                description: JSON.stringify(error.response.data.message)
             })
         }
     }
