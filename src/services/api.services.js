@@ -1,5 +1,10 @@
 import axios from './api.customize';
 
+const getAllUsers = () => {
+    const URL_API = '/api/v1/user'
+    return axios.get(URL_API)
+}
+
 const createUserAPI = (fullname, email, phone, password) => {
     const URL_API = '/api/v1/user'
     const data =
@@ -12,9 +17,20 @@ const createUserAPI = (fullname, email, phone, password) => {
     return axios.post(URL_API, data)
 }
 
-
-const getAllUsers = () => {
+const updateUserAPI = (_id, fullname, phone) => {
     const URL_API = '/api/v1/user'
-    return axios.get(URL_API)
+    const data =
+    {
+        _id: _id,
+        fullName: fullname,
+        phone: phone
+    }
+    return axios.put(URL_API, data)
 }
-export { createUserAPI, getAllUsers } 
+
+const deleteUserAPI = (id) => {
+    const URL_API = `/api/v1/user/${id}`
+    return axios.delete(URL_API)
+}
+
+export { createUserAPI, getAllUsers, updateUserAPI, deleteUserAPI } 

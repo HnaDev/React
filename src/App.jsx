@@ -1,4 +1,4 @@
-import { Header } from './components/layouts/header'
+import Header from './components/layouts/header'
 import Footer from './components/layouts/footer'
 import { Outlet } from 'react-router-dom'
 

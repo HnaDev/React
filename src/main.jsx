@@ -17,8 +17,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage/>,
     children: [
       {
-        // url mặc định sẽ dẫn tới
         index: true,
+        // url mặc định sẽ dẫn tới
         element: <TodoApp/>,
       },
       {

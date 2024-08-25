@@ -12,26 +12,55 @@ body {
     height: 100vh;
 }
 
-.form_user {
-    width: 60%;
-    margin: 0 auto;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .form_user div p {
     font-size: 16px;
     margin-bottom: 6px;
 }
 
 .form_user div button {
-    margin-bottom: 40px;
     padding: 20px;
     font-size: 16px;
     color: black;
 }
-.container_users {
-    
+
+.btn_show--modal {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn_show--modal p {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.ant-modal {
+    width: 800px !important;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.box_view div {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.box_view div p:nth-child(2) {
+    font-style: oblique;
+}
+
+.box_view div p:nth-child(1) {
+    text-transform: lowercase;
+    font-style: oblique;
+}
+
+.box_view {
+    background: #ccc;
+    border: 1px solid #000000;
 }

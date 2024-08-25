@@ -1,6 +1,6 @@
-const LoginPage = () => { 
+const BookPage = () => { 
     return(
-        <div>login</div>
+        <div>BookPage</div>
     )
 }
-export default LoginPage
+export default BookPage
