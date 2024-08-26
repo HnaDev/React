@@ -71,7 +71,7 @@ const UserTable = (props) => {
         try {
             const response = await deleteUserAPI(id);
             if (response.data) {
-                notification.success({
+                notification.warning({
                     message: 'delete success',
                     description: 'Xóa thành công !'
                 })
@@ -99,6 +99,7 @@ const UserTable = (props) => {
                 isViewUserOpen={isViewUserOpen}
                 setIsViewUserOpen={setIsViewUserOpen}
                 dataViewUser={dataViewUser}
+                loaderUser={loaderUser}
             />
         </>
     )
