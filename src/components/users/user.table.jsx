@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
-import { notification, Popconfirm, Space, Table } from 'antd';
+import { notification, Pagination, Popconfirm, Space, Table } from 'antd';
 import { useState } from 'react'
 import UserUpdateModal from './user.update.modal';
 import UserView from './user.view';
@@ -13,8 +13,16 @@ const UserTable = (props) => {
     const [dataUserUpdate, setDataUserUpdate] = useState(null)
     const [dataViewUser, setDataViewUser] = useState(null)
 
-    const { dataTable, loaderUser } = props
+    const { dataTable, loaderUser, currentPage, setCurrentPage, pageSize, total, setPageSize } = props
+
     const columns = [
+        {
+            title: 'STT',
+            align: 'center',
+            render: (_, record, index) => {
+                return <>{(index + 1) + (currentPage - 1) * pageSize}</>
+            }
+        },
         {
             title: 'Id',
             dataIndex: '_id',
@@ -85,9 +93,35 @@ const UserTable = (props) => {
         }
     };
 
+
+    // pagination
+    const paginationConfig = {
+        current: currentPage,
+        pageSize: pageSize,
+        showSizeChanger: true,
+        total: total,
+        showTotal: (total, range) => {
+            return (<div> {range[0]}-{range[1]} trên {total} rows</div>)
+        }
+    };
+
+    const onChange = (pagination) => {
+        if (pagination) {
+            if (+currentPage !== +pagination.current) {
+                setCurrentPage(+pagination.current)
+            }
+            if (+pageSize !== +pagination.pageSize) {
+                setPageSize(+pagination.pageSize)
+            }
+        }
+    }
+
     return (
         <>
-            <Table columns={columns} dataSource={dataTable} rowKey={"_id"} style={{ margin: "0px 20px" }} />
+            <Table columns={columns} dataSource={dataTable} rowKey={"_id"} style={{ margin: "0px 20px" }}
+                pagination={paginationConfig}
+                onChange={onChange}
+            />
             <UserUpdateModal
                 isModalUpdateUserOpen={isModalUpdateUserOpen}
                 setIsModalUpdateUserOpen={setIsModalUpdateUserOpen}
